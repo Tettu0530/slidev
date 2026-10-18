@@ -353,6 +353,62 @@ cli.command(
 )
 
 cli.command(
+  'folder [dir]',
+  'Serve every <dir>/<id>/slides.md on one port, with a deck browser',
+  args => args
+    .positional('dir', {
+      default: '.',
+      type: 'string',
+      describe: 'folder that contains one sub-folder per deck',
+    })
+    .option('port', {
+      alias: 'p',
+      type: 'number',
+      default: 3030,
+      describe: 'port',
+    })
+    .option('open', {
+      alias: 'o',
+      default: false,
+      type: 'boolean',
+      describe: 'open the deck browser',
+    })
+    .option('template', {
+      type: 'string',
+      describe: 'markdown used for new decks ({{id}} and {{title}} are replaced)',
+    })
+    .option('idle', {
+      type: 'number',
+      default: 30,
+      describe: 'stop a deck after this many idle minutes',
+    })
+    .strict()
+    .help(),
+  async ({ dir, port, open, template, idle }) => {
+    const { startFolderServer } = await import('./commands/folder')
+    const { dir: root } = await startFolderServer({
+      dir: dir!,
+      port,
+      host: 'localhost',
+      template,
+      idleMinutes: idle,
+      log: msg => console.log(`${dim('  [folder]')} ${msg}`),
+    })
+    const url = `http://localhost:${port}/`
+    console.log()
+    console.log(`${cyan('  ●') + blue('■') + yellow('▲')}`)
+    console.log(`${bold('  Slidev')}  ${blue(`v${version}`)} ${dim('folder mode')}`)
+    console.log()
+    console.log(dim('  folder      ') + root)
+    console.log(`${dim('  decks       ')} > ${cyan(url)}`)
+    console.log(`${dim('  a deck      ')} > ${blue(`${url}d/<id>/`)}`)
+    console.log()
+    if (open)
+      await openBrowser(url)
+  },
+)
+
+cli.command(
   'build [entry..]',
   'Build hostable SPA',
   args => exportOptions(commonOptions(args))
