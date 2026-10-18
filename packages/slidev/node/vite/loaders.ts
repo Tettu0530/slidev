@@ -75,7 +75,10 @@ export function createSlidesLoader(
       updateServerWatcher()
 
       server.middlewares.use(async (req, res, next) => {
-        const match = req.url?.match(regexSlideReqPath)
+        // This middleware runs before Vite's base middleware, so strip the base here
+        const base = server.config.base
+        const url = base !== '/' && req.url?.startsWith(base) ? req.url.slice(base.length - 1) : req.url
+        const match = url?.match(regexSlideReqPath)
         if (!match)
           return next()
 

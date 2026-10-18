@@ -131,7 +131,7 @@ export function useNavBase(
         return false
       url = `${slide.filepath}:${slide.start}`
     }
-    await fetch(`/__open-in-editor?file=${encodeURIComponent(url)}`)
+    await fetch(`${import.meta.env.BASE_URL}__open-in-editor?file=${encodeURIComponent(url)}`)
     return true
   }
 

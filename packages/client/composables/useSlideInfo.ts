@@ -16,7 +16,7 @@ export function useSlideInfo(no: number): UseSlideInfo {
       update: async () => {},
     }
   }
-  const url = `/__slidev/slides/${no}.json`
+  const url = `${import.meta.env.BASE_URL}__slidev/slides/${no}.json`
   const { data: info, execute } = useFetch(url).json<SlideInfo>().get()
 
   execute()

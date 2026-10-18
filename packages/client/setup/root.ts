@@ -54,8 +54,10 @@ export default function setupRoot() {
 
   usePrintStyles()
 
-  initSharedState(`${slidesTitle} - shared`)
-  initDrawingState(`${slidesTitle} - drawings`)
+  // Decks served under different bases share one origin; keep their sync channels apart
+  const syncPrefix = import.meta.env.BASE_URL === '/' ? '' : `${import.meta.env.BASE_URL} `
+  initSharedState(`${syncPrefix}${slidesTitle} - shared`)
+  initDrawingState(`${syncPrefix}${slidesTitle} - drawings`)
 
   const id = `${location.origin}_${makeId()}`
   const syncType = computed(() => isPresenter.value ? 'presenter' : 'viewer')
