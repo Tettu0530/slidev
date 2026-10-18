@@ -95,13 +95,19 @@ if (__SLIDEV_FEATURE_RECORD__)
 
         <IconButton
           v-if="isPresenter"
-          :title="cursorStyle === 'laser'
-            ? (showPresenterCursor ? 'Disable laser pointer' : 'Enable laser pointer')
-            : (showPresenterCursor ? 'Hide presenter cursor' : 'Show presenter cursor')"
+          :title="cursorStyle === 'trail'
+            ? (showPresenterCursor ? 'Disable trail pointer' : 'Enable trail pointer')
+            : cursorStyle === 'laser'
+              ? (showPresenterCursor ? 'Disable laser pointer' : 'Enable laser pointer')
+              : (showPresenterCursor ? 'Hide presenter cursor' : 'Show presenter cursor')"
           :active="showPresenterCursor"
           @click="togglePresenterCursor()"
         >
-          <template v-if="cursorStyle === 'laser'">
+          <template v-if="cursorStyle === 'trail'">
+            <div v-if="showPresenterCursor" class="i-ph-scribble-loop-bold text-error" />
+            <div v-else class="i-ph-scribble-loop" />
+          </template>
+          <template v-else-if="cursorStyle === 'laser'">
             <div v-if="showPresenterCursor" class="i-carbon-magic-wand-filled text-error" />
             <div v-else class="i-carbon-magic-wand" />
           </template>

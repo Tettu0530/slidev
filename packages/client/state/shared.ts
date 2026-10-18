@@ -20,7 +20,7 @@ export interface SharedState {
   cursor?: {
     x: number
     y: number
-    style?: 'cursor' | 'laser'
+    style?: 'cursor' | 'laser' | 'trail'
   }
 
   lastUpdate?: {

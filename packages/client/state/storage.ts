@@ -56,7 +56,7 @@ export const captureDelay = useLocalStorage('slidev-export-capture-delay', 400, 
 
 export const showPresenterCursor = useLocalStorage('slidev-presenter-cursor', true, { listenToStorageChanges: false })
 
-export const cursorStyle = useLocalStorage<'cursor' | 'laser'>('slidev-cursor-style', 'cursor', { listenToStorageChanges: false })
+export const cursorStyle = useLocalStorage<'cursor' | 'laser' | 'trail'>('slidev-cursor-style', 'cursor', { listenToStorageChanges: false })
 
 export function togglePresenterCursor() {
   showPresenterCursor.value = !showPresenterCursor.value

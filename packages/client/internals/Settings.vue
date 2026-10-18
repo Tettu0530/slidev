@@ -92,6 +92,7 @@ const { isSupported } = useWakeLock()
         :options="[
           { label: 'Cursor', value: 'cursor' },
           { label: 'Laser', value: 'laser' },
+          { label: 'Trail', value: 'trail' },
         ]"
       />
     </FormItem>

@@ -73,7 +73,8 @@ html #app,
 html #page-root {
   font-family: var(--pm-ui-sans);
 }
-html .slidev-slide-container {
+/* Only the slide itself: in play mode the nav sits inside .slidev-slide-container, next to .slidev-slide-content */
+html .slidev-slide-content {
   --uno: font-sans;
 }
 html body code,
@@ -81,8 +82,8 @@ html body kbd,
 .pm-mono {
   font-family: var(--pm-ui-mono);
 }
-html .slidev-slide-container code,
-html .slidev-slide-container kbd {
+html .slidev-slide-content code,
+html .slidev-slide-content kbd {
   --uno: font-mono;
 }
 
@@ -130,4 +131,37 @@ html body {
 .slidev-export-panel input:focus {
   border-color: var(--pm-ui-fg);
   outline: none;
+}
+
+/* Fast tooltip for chrome controls (logic/tooltip.ts) */
+.pm-tooltip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  max-width: 320px;
+  padding: 4px 8px;
+  border-radius: var(--pm-ui-radius);
+  background: var(--pm-ui-fg);
+  color: var(--pm-ui-on-fg);
+  font-family: var(--pm-ui-sans);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: pm-tooltip-in 80ms ease-out;
+}
+.pm-tooltip[hidden] {
+  display: none;
+}
+@keyframes pm-tooltip-in {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pm-tooltip {
+    animation: none;
+  }
 }

@@ -9,12 +9,14 @@ import { usePrintStyles } from '../composables/usePrintStyles'
 import { injectionClicksContext, injectionCurrentPage, injectionRenderContext, injectionSlidevContext, TRUST_ORIGINS } from '../constants'
 import { configs, slidesTitle } from '../env'
 import { getSlidePath } from '../logic/slides'
+import { installTooltips } from '../logic/tooltip'
 import { makeId } from '../logic/utils'
 import { hmrSkipTransition, syncDirections } from '../state'
 import { initDrawingState } from '../state/drawings'
 import { initSharedState, onPatch, patch } from '../state/shared'
 
 export default function setupRoot() {
+  installTooltips()
   const app = getCurrentInstance()!.appContext.app
 
   const context = reactive({
