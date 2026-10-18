@@ -76,7 +76,7 @@ const clicksContext = computed(() => {
         :auto-scroll="true"
       />
     </div>
-    <div class="flex-none border-t border-main" px3 py2>
+    <div v-if="clicksContext.total > 0" class="flex-none border-t border-main" px3 py2>
       <ClicksSlider :clicks-context="clicksContext" readonly />
     </div>
     <div class="flex-none border-t border-main">

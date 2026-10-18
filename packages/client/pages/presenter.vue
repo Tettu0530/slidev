@@ -325,7 +325,9 @@ onMounted(() => {
           <LaserPointer />
         </SlideContainer>
 
+        <!-- Like the overview, hide the slider on slides without clicks -->
         <ClicksSlider
+          v-if="getPrimaryClicks(currentSlideRoute).total > 0"
           :key="currentSlideRoute?.no"
           :clicks-context="getPrimaryClicks(currentSlideRoute)"
           class="w-full pb2 px4 flex-none"
