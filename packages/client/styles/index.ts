@@ -11,6 +11,7 @@ import 'markdown-it-github-alerts/styles/github-colors-dark-media.css'
 import 'markdown-it-github-alerts/styles/github-base.css'
 
 import './vars.css'
+import './premerd.css'
 import './index.css'
 import './code.css'
 import './katex.css'

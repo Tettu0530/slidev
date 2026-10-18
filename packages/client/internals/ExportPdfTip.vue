@@ -63,8 +63,8 @@ function print() {
 
 <style scoped>
 button {
-  @apply bg-blue-400 text-white px-4 py-1 rounded border-b-2 border-blue-600;
-  @apply hover:(bg-blue-500 border-blue-700);
+  @apply px-4 py-1 rounded-ui border border-[var(--pm-ui-fg)] bg-[var(--pm-ui-fg)] text-[var(--pm-ui-on-fg)];
+  @apply hover:(op-88);
 }
 
 button.cancel {

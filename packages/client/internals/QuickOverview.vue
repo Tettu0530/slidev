@@ -112,13 +112,13 @@ watchEffect(() => {
 <template>
   <Transition
     enter-active-class="duration-150 ease-out"
-    enter-from-class="opacity-0 scale-102 !backdrop-blur-0px"
+    enter-from-class="opacity-0"
     leave-active-class="duration-200 ease-in"
-    leave-to-class="opacity-0 scale-102 !backdrop-blur-0px"
+    leave-to-class="opacity-0"
   >
     <div
       v-if="showOverview"
-      class="fixed left-0 right-0 top-0 h-[calc(var(--vh,1vh)*100)] z-modal bg-main !bg-opacity-75 p-16 py-20 overflow-y-auto backdrop-blur-5px select-none"
+      class="fixed left-0 right-0 top-0 h-[calc(var(--vh,1vh)*100)] z-modal bg-main p-16 py-20 overflow-y-auto select-none"
       @click="close"
     >
       <div
@@ -131,7 +131,7 @@ watchEffect(() => {
           class="relative"
         >
           <div
-            class="inline-block border rounded overflow-hidden bg-main hover:border-primary transition"
+            class="inline-block border overflow-hidden bg-main hover:border-primary transition"
             :class="(focus(idx + 1) || currentOverviewPage === idx + 1) ? 'border-primary' : 'border-main'"
             @click="go(route.no)"
           >
@@ -155,7 +155,7 @@ watchEffect(() => {
             :style="`left: ${cardWidth + 5}px`"
           >
             <template v-if="keyboardBuffer && String(idx + 1).startsWith(keyboardBuffer)">
-              <span class="text-green font-bold">{{ keyboardBuffer }}</span>
+              <span class="text-main font-bold pm-mono">{{ keyboardBuffer }}</span>
               <span class="opacity-50">{{ String(idx + 1).slice(keyboardBuffer.length) }}</span>
             </template>
             <span v-else class="opacity-50">

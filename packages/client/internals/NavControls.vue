@@ -49,7 +49,7 @@ function onMouseLeave() {
 
 const barStyle = computed(() => props.persist
   ? 'text-$slidev-controls-foreground bg-transparent'
-  : 'rounded-md bg-main shadow-xl border border-main')
+  : 'rounded-ui bg-main border border-main')
 
 const RecordingControls = shallowRef<any>()
 if (__SLIDEV_FEATURE_RECORD__)
@@ -102,7 +102,7 @@ if (__SLIDEV_FEATURE_RECORD__)
           @click="togglePresenterCursor()"
         >
           <template v-if="cursorStyle === 'laser'">
-            <div v-if="showPresenterCursor" class="i-carbon-magic-wand-filled color-red-600 dark:color-red-400" />
+            <div v-if="showPresenterCursor" class="i-carbon-magic-wand-filled text-error" />
             <div v-else class="i-carbon-magic-wand" />
           </template>
           <template v-else>

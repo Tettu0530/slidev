@@ -1,0 +1,133 @@
+/*
+ * PreMerd UI tokens: Slidev's own chrome (nav, overview, presenter, export, dialogs).
+ * White, ink and greys only; 1px rules; color is kept for meaning (errors, recording, overtime).
+ * Slides themselves are not affected: they keep their theme's fonts and colors.
+ */
+
+@font-face {
+  font-family: 'PreMerd UI Sans';
+  src: url('../assets/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PreMerd UI Mono';
+  src: url('../assets/fonts/GeistMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PreMerd UI Mono';
+  src: url('../assets/fonts/GeistMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --pm-ui-bg: #ffffff;
+  --pm-ui-fg: #171717; /* 17.9:1 on bg */
+  --pm-ui-muted: #666666; /* 5.7:1 */
+  --pm-ui-faint: #737373; /* 4.7:1 */
+  --pm-ui-line: #eaeaea;
+  --pm-ui-mark: #a3a3a3;
+  --pm-ui-border: #d4d4d4;
+  --pm-ui-fill: #fafafa;
+  --pm-ui-band: #f5f5f5;
+  --pm-ui-active: rgba(23, 23, 23, 0.06);
+  --pm-ui-hover: rgba(23, 23, 23, 0.1);
+  --pm-ui-error: #b42318; /* 6.5:1 */
+  --pm-ui-on-fg: #ffffff;
+
+  --pm-ui-sans: 'PreMerd UI Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', system-ui, sans-serif;
+  --pm-ui-mono: 'PreMerd UI Mono', ui-monospace, monospace;
+  --pm-ui-radius: 6px;
+  --pm-ui-radius-sm: 3px;
+
+  --slidev-theme-primary: #171717;
+  --slidev-slide-container-background: var(--pm-ui-bg);
+  --slidev-controls-foreground: var(--pm-ui-fg);
+}
+
+html.dark {
+  --pm-ui-bg: #0a0a0a;
+  --pm-ui-fg: #ededed; /* 16.9:1 on bg */
+  --pm-ui-muted: #a1a1a1; /* 7.6:1 */
+  --pm-ui-faint: #8f8f8f; /* 6.1:1 */
+  --pm-ui-line: #262626;
+  --pm-ui-mark: #525252;
+  --pm-ui-border: #3a3a3a;
+  --pm-ui-fill: #111111;
+  --pm-ui-band: #1a1a1a;
+  --pm-ui-active: rgba(237, 237, 237, 0.08);
+  --pm-ui-hover: rgba(237, 237, 237, 0.14);
+  --pm-ui-error: #f97066; /* 6.9:1 */
+  --pm-ui-on-fg: #0a0a0a;
+
+  --slidev-theme-primary: #ededed;
+}
+
+/* The chrome uses Geist; slides (and slide previews inside the chrome) keep the deck's own fonts.
+   `html` raises specificity above index.css, which sets the deck font on the same elements. */
+html body,
+html #app,
+html #page-root {
+  font-family: var(--pm-ui-sans);
+}
+html .slidev-slide-container {
+  --uno: font-sans;
+}
+html body code,
+html body kbd,
+.pm-mono {
+  font-family: var(--pm-ui-mono);
+}
+html .slidev-slide-container code,
+html .slidev-slide-container kbd {
+  --uno: font-mono;
+}
+
+/* A small mono label, like a path in the frame of a PreMerd slide */
+.pm-label {
+  font-family: var(--pm-ui-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: var(--pm-ui-faint);
+  text-transform: none;
+}
+
+/* Hairline rule with a "+" mark at its left end */
+.pm-rule {
+  position: relative;
+  border-top: 1px solid var(--pm-ui-line);
+}
+
+::selection {
+  background: var(--pm-ui-fg);
+  color: var(--pm-ui-on-fg);
+}
+
+/* Native controls follow the ink */
+html body {
+  accent-color: var(--pm-ui-fg);
+}
+
+/* Export panel: section titles, inputs */
+.slidev-export-panel h2 {
+  font-size: 13px;
+  font-weight: 700;
+}
+.slidev-export-panel input[type='text'],
+.slidev-export-panel input[type='number'] {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--pm-ui-border);
+  border-radius: var(--pm-ui-radius);
+  background: var(--pm-ui-bg);
+  color: var(--pm-ui-fg);
+  font-size: 13px;
+}
+.slidev-export-panel input:focus {
+  border-color: var(--pm-ui-fg);
+  outline: none;
+}

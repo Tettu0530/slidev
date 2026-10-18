@@ -22,15 +22,16 @@ const timer = reactive(useTimer())
 const color = computed(() => {
   if (timer.status === 'stopped')
     return 'op50'
+  // PreMerd: lightness rises with elapsed time; only overtime is red
   if (timer.status === 'paused')
-    return 'bg-blue'
+    return 'bg-[var(--pm-ui-mark)]'
 
   if (timer.percentage > 100)
-    return 'bg-red'
+    return 'bg-[var(--pm-ui-error)]'
   else if (timer.percentage > 80)
-    return 'bg-yellow'
+    return 'bg-[var(--pm-ui-fg)]'
   else
-    return 'bg-green'
+    return 'bg-[var(--pm-ui-muted)]'
 })
 </script>
 

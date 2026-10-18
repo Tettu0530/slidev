@@ -25,12 +25,12 @@ function reset() {
         v-if="nested" i-ri-corner-down-right-line op40
         :style="typeof nested === 'number' ? { marginLeft: `${nested * 0.5 + 0.5}rem` } : { marginLeft: '0.25rem' }"
       />
-      <div v-if="!description" op75 relative @dblclick="reset">
+      <div v-if="!description" text-muted text-13px relative @dblclick="reset">
         {{ title }}
         <div v-if="dot" w-1.5 h-1.5 bg-primary rounded absolute top-0 right--2 />
       </div>
       <Tooltip v-else distance="10">
-        <div op75 text-right relative @dblclick="reset">
+        <div text-muted text-13px text-right relative @dblclick="reset">
           {{ title }}
           <div v-if="dot" w-1.5 h-1.5 bg-primary rounded absolute top-0 right--2 />
         </div>

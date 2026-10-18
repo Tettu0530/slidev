@@ -310,7 +310,7 @@ onUnmounted(() => {
           >
             <button
               class="relative transition duration-300 w-8 h-8 rounded hover:bg-active hover:op100"
-              :class="activeBlocks.includes(idx) ? 'op100 text-primary bg-gray:5' : 'op20'"
+              :class="activeBlocks.includes(idx) ? 'op100 text-primary bg-active' : 'op20'"
               @click="scrollToSlide(idx)"
             >
               <div>{{ idx + 1 }}</div>

@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import {
-  getHashColorFromString,
-  getHsla,
-} from '../logic/color'
 
 const props = withDefaults(
   defineProps<{
@@ -17,16 +13,13 @@ const props = withDefaults(
   },
 )
 
+// PreMerd: no hashed hues; a "colored" badge is ink on a faint ground
 const style = computed(() => {
   if (!props.text || props.color === false)
     return {}
   return {
-    color: typeof props.color === 'number'
-      ? getHsla(props.color)
-      : getHashColorFromString(props.text),
-    background: typeof props.color === 'number'
-      ? getHsla(props.color, 0.1)
-      : getHashColorFromString(props.text, 0.1),
+    color: 'var(--pm-ui-fg)',
+    background: 'var(--pm-ui-hover)',
   }
 })
 
@@ -40,7 +33,7 @@ const sizeClasses = computed(() => {
 </script>
 
 <template>
-  <component :is="as || 'span'" ws-nowrap rounded :class="sizeClasses" :style>
+  <component :is="as || 'span'" ws-nowrap rounded-ui :class="sizeClasses" :style>
     <slot>
       <span v-text="props.text" />
     </slot>

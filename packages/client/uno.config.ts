@@ -18,10 +18,16 @@ export default defineConfig({
     'grid-cols-[1fr_max-content]',
   ],
   shortcuts: {
-    'bg-main': 'bg-white dark:bg-[#121212]',
-    'bg-active': 'bg-gray-400/10',
-    'border-main': 'border-gray/20',
-    'text-main': 'text-[#181818] dark:text-[#ddd]',
+    // PreMerd: every chrome color comes from the --pm-ui-* tokens (styles/premerd.css)
+    'bg-main': 'bg-[var(--pm-ui-bg)]',
+    'bg-active': 'bg-[var(--pm-ui-active)]',
+    'border-main': 'border-[var(--pm-ui-line)]',
+    'text-main': 'text-[var(--pm-ui-fg)]',
+    'text-muted': 'text-[var(--pm-ui-muted)]',
+    'text-faint': 'text-[var(--pm-ui-faint)]',
+    'border-control': 'border-[var(--pm-ui-border)]',
+    'text-error': 'text-[var(--pm-ui-error)]',
+    'rounded-ui': 'rounded-[var(--pm-ui-radius)]',
     'text-primary': 'color-$slidev-theme-primary',
     'bg-primary': 'bg-$slidev-theme-primary',
     'border-primary': 'border-$slidev-theme-primary',
@@ -41,7 +47,8 @@ export default defineConfig({
     'z-modal': 'z-70',
     'z-focus-indicator': 'z-200',
 
-    'slidev-glass-effect': 'shadow-xl backdrop-blur-8 border border-main bg-main bg-opacity-75!',
+    // No glass: a solid surface with a 1px rule
+    'slidev-glass-effect': 'border border-main bg-main',
   },
   // Slidev Specific Variants, probably extrat to a preset later
   variants: [

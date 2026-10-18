@@ -22,9 +22,9 @@ html {
   user-select: none;
   outline: none;
   cursor: pointer;
-  @apply inline-flex items-center justify-center opacity-75 transition duration-200 ease-in-out align-middle rounded p-1 relative;
-  @apply hover:(opacity-100 bg-gray-400 bg-opacity-10);
-  @apply focus-visible:(opacity-100 outline outline-2 outline-offset-2 outline-black dark:outline-white);
+  @apply inline-flex items-center justify-center opacity-75 transition duration-200 ease-in-out align-middle rounded-ui p-1 relative;
+  @apply hover:(opacity-100 bg-[var(--pm-ui-active)]);
+  @apply focus-visible:(opacity-100 outline outline-2 outline-offset-2 outline-[var(--pm-ui-fg)]);
   @apply md:p-2;
 }
 
@@ -73,10 +73,13 @@ html {
   user-select: none;
   font-size: 0.7em;
   display: inline-flex;
-  --uno: text-violet bg-violet/10 px1 font-mono rounded items-center border border-transparent;
+  --uno: px1 font-mono items-center border border-transparent;
+  color: var(--pm-ui-fg);
+  background: var(--pm-ui-active);
+  border-radius: var(--pm-ui-radius-sm);
 }
 .slidev-note-click-mark.slidev-note-click-mark-active {
-  --uno: border border-violet;
+  border-color: var(--pm-ui-fg);
 }
 .slidev-note-click-mark.slidev-note-click-mark-past {
   filter: saturate(0);
@@ -107,14 +110,38 @@ html {
   transform: translateY(0.1em);
 }
 
+/* PreMerd buttons: an outlined default and an ink primary, 6px radius, no bevel */
 .slidev-form-button {
-  --uno: text-white px-4 py-1 rounded border-b-2;
-  --uno: 'bg-gray-500 border-gray-700';
-  --uno: 'hover:(bg-gray-400 border-gray6)';
+  height: 34px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--pm-ui-border);
+  border-radius: var(--pm-ui-radius);
+  background: var(--pm-ui-bg);
+  color: var(--pm-ui-fg);
+  font-family: var(--pm-ui-sans);
+  font-size: 13px;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+.slidev-form-button:hover {
+  border-color: var(--pm-ui-fg);
 }
 .slidev-form-button.primary {
-  --uno: bg-teal-600 border-teal-800;
-  --uno: 'hover:(bg-teal-500 border-teal-700)';
+  border-color: var(--pm-ui-fg);
+  background: var(--pm-ui-fg);
+  color: var(--pm-ui-on-fg);
+}
+.slidev-form-button.primary:hover {
+  opacity: 0.88;
+}
+.slidev-form-button:focus-visible {
+  outline: 2px solid var(--pm-ui-fg);
+  outline-offset: 2px;
 }
 
 /* Transform the position back for Rough Notation (v-mark) */

@@ -76,8 +76,8 @@ const state = computed({
   <MenuButton>
     <template #button>
       <IconButton title="Change sync settings">
-        <div class="i-ph:arrow-up-bold mx--1.2 scale-x-80" :class="shouldSend ? 'text-green6 dark:text-green' : 'op30'" />
-        <div class="i-ph:arrow-down-bold mx--1.2 scale-x-80" :class="shouldReceive ? 'text-green6 dark:text-green' : 'op30'" />
+        <div class="i-ph:arrow-up-bold mx--1.2 scale-x-80" :class="shouldSend ? 'text-main' : 'op30'" />
+        <div class="i-ph:arrow-down-bold mx--1.2 scale-x-80" :class="shouldReceive ? 'text-main' : 'op30'" />
       </IconButton>
     </template>
     <template #menu>

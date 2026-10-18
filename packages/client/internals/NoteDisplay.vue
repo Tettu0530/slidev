@@ -161,7 +161,7 @@ watchEffect(() => {
   </div>
   <div
     v-else
-    class="prose dark:prose-invert overflow-auto outline-none opacity-50 italic select-none slidev-note"
+    class="prose dark:prose-invert overflow-auto outline-none text-faint select-none slidev-note"
     :class="props.class"
   >
     <p v-text="props.placeholder || 'No notes.'" />

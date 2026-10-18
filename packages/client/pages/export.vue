@@ -212,11 +212,11 @@ if (import.meta.hot) {
     v-else
     class="fixed inset-0 flex flex-col md:flex-row md:gap-8 print:position-unset print:inset-0 print:block print:min-h-max justify-center of-hidden bg-main"
   >
-    <div class="print:hidden min-w-fit flex flex-wrap md:flex-nowrap md:of-y-auto md:flex-col gap-2 p-6 max-w-100">
-      <h1 class="text-3xl md:my-4 flex items-center gap-2 w-full">
+    <div class="slidev-export-panel print:hidden min-w-fit flex flex-wrap md:flex-nowrap md:of-y-auto md:flex-col gap-2 p-6 max-w-100">
+      <h1 class="text-[28px] leading-tight font-bold tracking-[-0.03em] md:my-4 flex items-center gap-2 w-full">
         <RouterLink to="/" class="i-carbon:previous-outline op-70 hover:op-100" />
         Browser Exporter
-        <sup op50 italic text-sm>Experimental</sup>
+        <sup class="pm-label">Experimental</sup>
       </h1>
       <div flex="~ col gap-2">
         <h2>Options</h2>
@@ -242,18 +242,18 @@ if (import.meta.hot) {
       </div>
       <div class="flex-grow" />
       <div class="min-w-fit" flex="~ col gap-3">
-        <div border="~ main rounded-lg" p3 flex="~ col gap-2">
+        <div border="~ main" rounded-ui p3 flex="~ col gap-2">
           <h2>Export as Vector File</h2>
           <div class="flex flex-col gap-2 min-w-max">
-            <button class="slidev-form-button" @click="pdf">
+            <button class="slidev-form-button primary" @click="pdf">
               PDF
             </button>
           </div>
         </div>
 
-        <div border="~ main rounded-lg" p3 flex="~ col gap-2" :class="isScreenshotSupported ? '' : 'border-orange'">
+        <div border="~ main" rounded-ui p3 flex="~ col gap-2">
           <h2>Export as Images</h2>
-          <div v-if="!isScreenshotSupported" class="min-w-full w-0 text-orange/100 p-1 mb-2 bg-orange/10 rounded">
+          <div v-if="!isScreenshotSupported" class="min-w-full w-0 text-error p-2 mb-2 bg-active rounded-ui text-[13px]">
             <span class="i-carbon:warning-alt inline-block mb--.5" />
             Your browser may not support image capturing.
             If you encounter issues, please use a modern Chromium-based browser,
@@ -332,7 +332,7 @@ if (import.meta.hot) {
 }
 
 label {
-  --uno: text-xl flex gap-2 items-center select-none;
+  --uno: text-13px flex gap-2 items-center select-none;
 
   span {
     --uno: flex-grow;
@@ -340,12 +340,12 @@ label {
 
   input[type='text'],
   input[type='number'] {
-    --uno: border border-main rounded px-2 py-1;
+    --uno: border border-control rounded-ui px-2 py-1;
   }
 }
 
 h2 {
-  --uno: font-500 op-70;
+  --uno: font-700 text-13px;
 }
 
 #export-content {

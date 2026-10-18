@@ -299,7 +299,7 @@ onMounted(() => {
       />
       <div ref="main" class="relative grid-section main flex flex-col">
         <div flex="~ gap-4 items-center" border="b main" p1>
-          <span op50 px2>Current</span>
+          <span class="pm-label px2">Current</span>
           <div flex-auto />
           <SegmentControl
             v-model="mainSlideMode"
@@ -353,7 +353,7 @@ onMounted(() => {
             End of the presentation
           </div>
         </div>
-        <div class="absolute left-0 top-0 bg-main border-b border-r border-main px2 py1 op50 text-sm">
+        <div class="absolute left-0 top-0 bg-main border-b border-r border-main px2 py1 pm-label">
           Next
         </div>
       </div>

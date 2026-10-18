@@ -121,7 +121,7 @@ export const mainSlideElement = ref<HTMLElement | null>(null)
       class="w-full h-full object-cover"
       :style="containerStyle"
     >
-    <div absolute bottom-1 right-1 p0.5 text-cyan:75 bg-cyan:10 rounded title="Snapshot">
+    <div absolute bottom-1 right-1 p0.5 text-muted bg-active rounded-ui title="Snapshot">
       <div class="i-carbon-camera" />
     </div>
   </div>

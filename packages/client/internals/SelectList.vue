@@ -34,7 +34,7 @@ const value = useVModel(props, 'modelValue', emit, { passive: true })
         :class="{ active: value === item.value }"
         @click="() => { value = item.value; item.onClick?.() }"
       >
-        <div class="i-carbon:checkmark text-green-500 mya" :class="{ 'opacity-0': value !== item.value }" />
+        <div class="i-carbon:checkmark text-main mya" :class="{ 'opacity-0': value !== item.value }" />
         <div :class="{ 'opacity-50': value !== item.value }">
           {{ item.display || item.value }}
         </div>

@@ -7,15 +7,16 @@ const { status, percentage, mode, timer, reset, toggle } = useTimer()
 const color = computed(() => {
   if (status.value === 'stopped')
     return 'op50'
+  // PreMerd: lightness rises with elapsed time; only overtime is red
   if (status.value === 'paused')
-    return 'text-blue6 dark:text-blue3'
+    return 'text-faint'
 
   if (percentage.value > 100)
-    return 'text-red6 dark:text-red3'
+    return 'text-error'
   else if (percentage.value > 80)
-    return 'text-yellow6 dark:text-yellow3'
+    return 'text-main font-bold'
   else
-    return 'text-green6 dark:text-green3'
+    return 'text-muted'
 })
 </script>
 

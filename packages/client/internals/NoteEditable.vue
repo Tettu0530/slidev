@@ -117,7 +117,7 @@ watch(
   <NoteDisplay
     v-if="!editing"
     class="border-transparent border-2"
-    :class="[props.class, note ? '' : 'opacity-25 italic select-none']"
+    :class="[props.class, note ? '' : 'text-faint select-none']"
     :style="props.style"
     :note="note || placeholder"
     :note-html="info?.noteHTML"
@@ -133,7 +133,7 @@ watch(
     v-model="note"
     class="prose dark:prose-invert resize-none overflow-auto outline-none bg-transparent block border-primary border-2 slidev-note placeholder:op25"
     :style="[props.style, inputHeight != null ? { height: `${inputHeight}px` } : {}]"
-    :class="[props.class, note ? '' : 'italic']"
+    :class="[props.class, note ? '' : 'text-faint']"
     :placeholder="placeholder"
     @keydown.esc="editing = false"
     @keydown="onKeyDown"

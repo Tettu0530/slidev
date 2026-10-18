@@ -37,7 +37,7 @@ onMounted(() => {
   <IconButton
     v-if="currentCamera !== 'none'"
     class="<md:hidden"
-    :class="{ 'text-green-500': Boolean(showAvatar && streamCamera) }"
+    :class="{ 'text-main': Boolean(showAvatar && streamCamera) }"
     title="Toggle camera view"
     @click="toggleAvatar"
   >
@@ -45,7 +45,7 @@ onMounted(() => {
   </IconButton>
 
   <IconButton
-    :class="{ 'text-red-500': recording }"
+    :class="{ 'text-error': recording }"
     :title="recording ? 'Stop record video' : 'Record video'"
     @click="toggleRecording"
   >

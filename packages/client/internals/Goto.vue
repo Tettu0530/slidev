@@ -114,10 +114,9 @@ watch(activeElement, () => {
     :class="showGotoDialog ? 'top-5' : '-top-20 op0 pointer-events-none'"
   >
     <div
-      class="bg-main transform"
-      shadow="~"
+      class="bg-main transform rounded-ui"
       p="x-4 y-2"
-      border="~ transparent rounded dark:main"
+      border="~ main"
     >
       <input
         id="slidev-goto-input"
@@ -127,7 +126,7 @@ watch(activeElement, () => {
         :disabled="!showGotoDialog"
         class="outline-none bg-transparent"
         placeholder="Goto..."
-        :class="{ 'text-red-400': !valid && text }"
+        :class="{ 'text-error': !valid && text }"
         @keydown.enter="goTo"
         @keydown.escape="close"
         @keydown.down="focusDown"
@@ -138,9 +137,8 @@ watch(activeElement, () => {
     <div
       v-if="showGotoDialog && result.length > 0"
       ref="list"
-      class="autocomplete-list"
-      shadow="~"
-      border="~ transparent rounded dark:main"
+      class="autocomplete-list rounded-ui"
+      border="~ main"
     >
       <ul table w-full border-collapse>
         <li
